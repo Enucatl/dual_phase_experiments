@@ -31,9 +31,9 @@ namespace :reconstruction do
     CLEAN.include(reconstructed)
 
     desc "dpc_reconstruction of #{reconstructed}"
-    file reconstructed => [row[:sample], row[:flat]] do |f|
+    file reconstructed => [row[:sample], row[:flat], "Rakefile"] do |f|
       Dir.chdir "../dpc_reconstruction" do
-        sh "dpc_radiography --drop_last --group /entry/data/threshold_0 #{f.prerequisites.join(' ')}"
+        sh "dpc_radiography --drop_last --group /entry/data/threshold_0 #{f.prerequisites[0]} #{f.prerequisites[1]}"
       end
     end
   end
