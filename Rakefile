@@ -31,7 +31,7 @@ namespace :reconstruction do
     CLEAN.include(reconstructed)
 
     desc "dpc_reconstruction of #{reconstructed}"
-    file reconstructed => [row[:sample], row[:flat], "Rakefile"] do |f|
+    file reconstructed => [row[:sample], row[:flat]] do |f|
       Dir.chdir "../dpc_reconstruction" do
         sh "dpc_radiography --drop_last --group /entry/data/threshold_0 #{f.prerequisites[0]} #{f.prerequisites[1]}"
       end
@@ -56,7 +56,7 @@ namespace :postprocessing do
   datasets.each do |row|
     desc "crop of #{row[:reconstructed]}"
     file row[:cropped] => ["crop.py", row[:reconstructed]] do |f|
-      sh "python #{f.source} #{f.prerequisites[1]} #{f.name} --roi 1350 1650 0 -1"
+      sh "python #{f.source} #{f.prerequisites[1]} #{f.name} --roi 775 1000 0 -1"
     end
     CLEAN.include(row[:cropped])
 
@@ -73,5 +73,7 @@ namespace :postprocessing do
   file stacked => ["stack.py"] + datasets[:cropped] do |f|
     sh "python #{f.source} #{f.prerequisites.drop(1).join(" ")} #{f.name}"
   end
+
+  CLEAN.include(stacked)
 
 end
