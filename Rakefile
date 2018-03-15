@@ -56,7 +56,7 @@ namespace :postprocessing do
   datasets.each do |row|
     desc "crop of #{row[:reconstructed]}"
     file row[:cropped] => ["crop.py", row[:reconstructed]] do |f|
-      sh "python #{f.source} #{f.prerequisites[1]} #{f.name} --roi 775 1000 0 -1"
+      sh "python #{f.source} #{f.prerequisites[1]} #{f.name} --roi 150 1150 0 -1"
     end
     CLEAN.include(row[:cropped])
 
