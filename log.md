@@ -20,6 +20,7 @@ distance,sample,flat
 ```
 
 # moved sample to higher visibility position
+
 third chip from the left
 
 ```
@@ -38,3 +39,24 @@ distance,sample,flat
 7,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.134301854884.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.134527987344.h5
 8,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.134753142210.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.135019609169.h5
 9,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.135245745316.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.135510859756.h5
+```
+
+# move sample down to see the top side
+
+```
+for _ in range(10): controls.scans.dscan(detector, stptrx, 0, 1.3, 10, 10); smpltrx.mvr(-50); controls.scans.dscan(detector, stptrx, 0, 1.3, 10, 10); smpltrx.mvr(50); g1trz.mvr(0.1);
+```
+
+```
+distance,sample,flat
+0,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.141922868771.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.142148965913.h5
+1,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.142413872513.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.142638988111.h5
+2,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.142904106227.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.143129144636.h5
+3,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.143354063766.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.143619312288.h5
+4,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.143844467043.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.144109669517.h5
+5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.144334867272.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.144559523470.h5
+6,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.144824608325.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.145050206224.h5
+7,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.145315325242.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.145540276625.h5
+8,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.145805682928.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.150030896717.h5
+9,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.150256014636.h5,/sls/X02DA/data/e14980/Data20/High_Energy_Setup/SENTIS_DATA/2018_03_14/180315.150520867212.h5
+```
