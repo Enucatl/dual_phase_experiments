@@ -15,6 +15,7 @@ def main(input_filename, output_filename, roi):
         absorption = dpc_reconstruction[min_y:max_y, min_x:max_x, 0]
         with h5py.File(output_filename) as output_file:
             group = output_file.require_group("postprocessing")
+            dark_field[dark_field > 1] = 1
             if "dark_field" in group:
                 del group["dark_field"]
             group.create_dataset("dark_field", data=dark_field)
